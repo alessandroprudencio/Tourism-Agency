@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    <title>Painel AleTur</title>
+    <title>panel</title>
 
 		<!-- Bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -11,10 +11,10 @@
 
 		<!--CSS Person-->
 		<link rel="stylesheet" href="{{url('assets/panel/css/style.css')}}">
-		<link rel="stylesheet" href="{{url('assets/panel/css/reset.css')}}">
+		<link rel="stylesheet" href="{{url('assets/panel/css/dropdown.css')}}">
 
 		<!--Favicon-->
-		<link rel="icon" type="image/png" href="{{url('assets/panel/imgs/favicon.png')}}">
+		<link rel="icon" type="image/png" href="{{url('assets/panel/imgs/logo.png')}}">
 	</head>
 <body>
 
@@ -69,10 +69,7 @@
 
 	<div class="content-ds">
 		
-		<div class="bred">
-			<a href="" class="bred">Home  ></a> <a href="" class="bred">Dashboard</a>
-		</div>
-
+	
 		
         @yield('content')
 

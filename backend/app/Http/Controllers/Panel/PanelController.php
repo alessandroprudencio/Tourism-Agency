@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 class PanelController extends Controller
 {
     public function index(){
-        return view('panel.home.index');
+
+        $title ='Painel AleTur';
+
+        return view('panel.home.index', array('title' => 'Title'));
     }
 }
