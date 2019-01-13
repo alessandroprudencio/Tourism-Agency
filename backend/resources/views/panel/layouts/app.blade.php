@@ -1,88 +1,159 @@
 <!DOCTYPE html>
-<html>
-	<head>
-    <title>panel</title>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-		<!-- Bootstrap -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>AleTur</title>
 
-		<!--Fonts-->
-		<link rel="stylesheet" href="{{url('assets/panel/css/font-awesome.min.css')}}">
+    <!-- Bootstrap core CSS-->
+    <link href="{{url('assets/panel/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
-		<!--CSS Person-->
-		<link rel="stylesheet" href="{{url('assets/panel/css/style.css')}}">
-		<link rel="stylesheet" href="{{url('assets/panel/css/dropdown.css')}}">
+    <!-- Custom fonts for this template-->
+    <link href="{{url('assets/panel/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 
-		<!--Favicon-->
-		<link rel="icon" type="image/png" href="{{url('assets/panel/imgs/logo.png')}}">
-	</head>
-<body>
+    <!-- Page level plugin CSS-->
+    <link href="{{url('assets/panel/vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
 
-<section class="menu">
-	
-	<div class="logo">
-		<img src="{{url('assets/panel/imgs/logo.png')}}" alt="AleTur" class="logo-painel">
-	</div>
+    <!-- Custom styles for this template-->
+    <link href="{{url('assets/panel/css/sb-admin.css')}}" rel="stylesheet">
 
-	<div class="list-menu">
-		<ul class="menu-list">
-			<li>
-				<a href="?pag=home">
-					<i class="fa fa-home" aria-hidden="true"></i>
-					Home
-				</a>
-			</li>
+  </head>
 
-			<li>
-				<a href="?pag=list">
-					<i class="fa fa-id-card" aria-hidden="true"></i>
-					Listagem
-				</a>
-			</li>
+  <body id="page-top">
 
-			<li>
-				<a href="?pag=forms">
-					<i class="fa fa-fort-awesome" aria-hidden="true"></i>
-					Forms
-				</a>
-			</li>
-		</ul>
-	</div>
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-</section><!--End Menu-->
+      <a class="navbar-brand mr-1" href="index.html">AleTur</a>
 
-<section class="content">
-	<div class="top-dashboard">
-		
-		<div class="dropdown user-dash">
-		  <div class="dropdown-toggle" id="dropDownCuston" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <img src="{{url('assets/panel/imgs/user.jpg')}}" alt="Carlos Ferreira" class="user-dashboard img-circle">
-		    <p class="user-name">Nome User</p>
-		    <span class="caret"></span>
-		  </div>
-		  <ul class="dropdown-menu dp-menu" aria-labelledby="dropDownCuston">
-		    <li><a href="#">Perfil</a></li>
-		    <li><a href="#">Logout</a></li>
-		  </ul>
-		</div>
-	</div><!--Top Dashboard-->
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+        <i class="fas fa-bars"></i>
+      </button>
 
-	<div class="content-ds">
-		
-	
-		
-        @yield('content')
 
-	</div><!--End Content DS-->
+      <!-- Navbar icon -->
+      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      </form>
 
-</section><!--End Content-->
+      <!-- Navbar -->
+      <ul class="navbar-nav ml-auto ml-md-0 ">      
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle fa-fw"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="#">Activity Log</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          </div>
+        </li>
+      </ul>
 
-	
+    </nav>
 
-	<!--jQuery-->
-	<script src="{{ url("assets/panel/js/jquery-3.1.1.min.js")}}"></script>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul class="sidebar navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{route('admin')}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
 
-	<!-- jS Bootstrap -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</body>
+        <li class="nav-item">
+        <a class="nav-link" href="{{route('linhas_aereas.index')}}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Linhas Aéreas</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Charts</span></a>
+        </li>
+      </ul>
+
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+       
+
+          <!-- Icon Cards-->
+          <div class="row">
+            <div class="col-xl-12   col-sm-6 mb-12">
+              
+            @yield('content')
+     
+            </div>
+            
+          </div>
+
+          <!-- Area Chart Example-->
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>© TODOS OS DIREITOS RESERVADOS  - ALESSANDRO PRUDENCIO 2018</span>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+      <!-- /.content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{url('assets/panel/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url('assets/panel/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{url('assets/panel/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="{{url('assets/panel/vendor/datatables/jquery.dataTables.js')}}"></script>
+    <script src="{{url('assets/panel/vendor/datatables/dataTables.bootstrap4.js')}}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{{url('assets/panel/js/sb-admin.min.js')}}"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="{{url('assets/panel/js/demo/datatables-demo.js')}}"></script>
+
+  </body>
+
 </html>

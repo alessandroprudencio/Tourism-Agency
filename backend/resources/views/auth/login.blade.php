@@ -9,7 +9,7 @@
                     <h1 class="title">Login</h1>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form class="form form-search form-ds" method="POST" action="{{ route('login') }}">
                             @csrf
 
                             <div class="form-group ">
