@@ -9,18 +9,13 @@ use App\Http\Requests\AirlineStoreUpdateFormRequest;
 
 class AirlineController extends Controller
 {
-
     private $airline;
 
     public function __construct(Airline $airline)
    {
        $this->airline = $airline;
    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Airline $airline)
     {
         $airlines = $this->airline->all();
@@ -28,23 +23,13 @@ class AirlineController extends Controller
         return view('panel.airlines.airlines', compact('airlines'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function create()
     {
         return view('panel.airlines.create');
         
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(AirlineStoreUpdateFormRequest $request)
     {
         $dataForm = $request->all();
@@ -58,23 +43,19 @@ class AirlineController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
+        $airline = $this->airline->find($id);
 
+        if(!$airline){
+            return redirect()->back();
+        }
+
+        return view('panel.airlines.show', compact('airline'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $airline = $this->airline->find($id);
@@ -86,13 +67,6 @@ class AirlineController extends Controller
         return view('panel.airlines.edit', compact('airline'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(AirlineStoreUpdateFormRequest $request, $id)
     {
         $airline = $this->airline->find($id);
@@ -110,14 +84,18 @@ class AirlineController extends Controller
  
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $airline = $this->airline->find($id);
+
+        if(!$airline){
+            return redirect()->back();
+        }
+
+       if($airline->delete()){
+            return redirect()->route('linhas_aereas.index')->with('success','Excluido com  sucesso!');;
+       }else{
+        return redirect()->back()->with('error','Erro ao atualizar linha aérea!');
+    }
     }
 }

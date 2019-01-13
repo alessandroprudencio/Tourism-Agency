@@ -10,38 +10,26 @@
               </ol>
 
         <div class="title-pg">
-            <h1 class="title-pg">Linhas Aéreas</h1>
+            <h1 class="title-pg">Linhas Aéreas  <a href="{{route('linhas_aereas.create')}}" class="btn btn-success">
+                    <i class="fa fa-plus"></i> Cadastrar
+               </a></h1>
+           
         </div>
-        <a href="{{route('linhas_aereas.create')}}" class="btn btn-success">
-             <i class="fa fa-plus"></i> Cadastrar
-        </a>
+      
 
 
 
         <div id="content-wrapper">
 
         <div class="container-fluid">
-                <div>
-                        @if (session('success'))
-                        <div class="alert alert-success" role="alert">
-                            {{session('success')}}
-                        </div>
-                        @endif
-                    </div>
-                      
-                    <div>
-                        @if (session('error'))
-                        <div class="alert alert-error" role="alert">
-                            {{session('error')}}
-                        </div>
-                        @endif
-                    </div>
+              
+             @include('panel.includes.alerts')
                 
           <!-- DataTables Example -->
             
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-dark table-hover" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th>Nome</th>
@@ -55,7 +43,7 @@
                         <tr>
                             <td>{{$item->name}}</td>
                             <td><a href="{{route('linhas_aereas.edit', $item->id)}}"><i class="far fa-edit"></a></td>
-                            <td><a href="{{route('linhas_aereas.edit', $item->id)}}"><i class="far fa-trash-alt"></a></i></td>
+                            <td><a href="{{route('linhas_aereas.show', $item->id)}}"><i class="far fa-trash-alt"></a></i></td>
                         </tr>
                     @empty
                         <td> <p class="small text-center text-muted my-5">

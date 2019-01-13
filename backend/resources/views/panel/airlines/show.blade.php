@@ -12,28 +12,28 @@
         </ol>
     
         <div class="title-pg">
-            <h1 class="title-pg">Editar Linha Aérea</h1>
+        <h1 class="title-pg">Excluir Linha {{$airline->name}}</h1>
         </div>
           
         <div>
-            @include('panel.includes.errors')
+             @include('panel.includes.alerts')
+                
         </div>
         
-    
-        <form action="{{route('linhas_aereas.update',$airline->id)}}" method="POST">
+        <form action="{{route('linhas_aereas.destroy',$airline->id)}}" method="POST">
     
             {{ csrf_field() }}
             
-            {!! method_field('PUT') !!}
+            {!! method_field('DELETE') !!}
 
             <div class="form-group">
                 
                 <div class="form-label-group">
-                    <input type="text" value="{{$airline->name}}" name="name" id="name" class="form-control" placeholder="Nome Linha Aérea" required="required">
+                    <input type="text" disabled value="{{$airline->name}}" name="name" id="name" class="form-control" placeholder="Nome Linha Aérea" required="required">
                     <label for="name">Nome Linha Aérea</label>
                 </div>
             </div>
     
-            <button class="btn btn-primary btn-block">Editar</button>
+            <button class="btn btn-danger btn-block">Excluir</button>
         </form>
 @endsection
