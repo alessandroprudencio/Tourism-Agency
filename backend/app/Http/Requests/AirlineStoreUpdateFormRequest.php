@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Request;
 
 class AirlineStoreUpdateFormRequest extends FormRequest
 {
@@ -23,8 +24,10 @@ class AirlineStoreUpdateFormRequest extends FormRequest
      */
     public function rules()
     {
+
+        $idItem = Request::segment('3');
         return [
-            'name' => 'required|unique:airlines|min:3'
+            'name' => "required|unique:airlines,name,{$idItem},id|min:3"
         ];
     }
 }
