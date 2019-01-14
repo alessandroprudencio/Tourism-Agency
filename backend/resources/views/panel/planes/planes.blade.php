@@ -1,24 +1,21 @@
 @extends('panel.layouts.app')
 
-@section('content') 
-           <!-- Breadcrumbs-->
-           <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                  <a href="{{route('admin')}}">Dashboard</a>
-                </li>
-              <li class="breadcrumb-item active"><a>Linhas Aéreas</a></li>
-              </ol>
+@section('content')
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="{{route('admin')}}">Dashboard</a>
+            </li>
+          <li class="breadcrumb-item active"><a>Aviões</a></li>
+          </ol>
 
-        <div class="title-pg">
-            <h1 class="title-pg">Linhas Aéreas  
-              <a href="{{route('linhas_aereas.create')}}" class="btn btn-success">
-                    <i class="fa fa-plus"></i> Cadastrar
-               </a>
-              </h1> 
+          <div class="title-pg">
+                <h1 class="title-pg">Aviões 
+                    <a href="{{route('avioes.create')}}" class="btn btn-success">
+                        <i class="fa fa-plus"></i> Cadastrar
+                    </a>
+                </h1>
         </div>
-      
-
-
 
         <div id="content-wrapper">
 
@@ -34,18 +31,23 @@
                   <thead>
                     <tr>
                       <th>Nome</th>
+                      <th>Linha Aérea</th>
+                      <th>Classe</th>
+                      <th>Max. Passageiros</th>
                       <th>Ações</th> 
                     </tr>
                   </thead>
                   <tbody>
 
-                    @forelse ($airlines as $item)
+                    @forelse ($planes as $item)
                         <tr>
                             <td>{{$item->name}}</td>
+                            <td>{{$item->airline()->get()->first()->name}}</td>
+                            <td>{{$item->classes($item->class)}}</td>
+                            <td>{{$item->num_passengers}}</td>
                             <td>
-                              <a href="{{route('linhas_aereas.edit', $item->id)}}"><i class="far fa-edit"></i></a>
-                              <a href="{{route('linhas_aereas.show', $item->id)}}"><i class="far fa-trash-alt"></i></a>                            
-                              <a href="{{route('linhas_aereas.planes', $item->id)}}"><i class="fas fa-fw fa-plane"></i></a>                            
+                              <a href="{{route('avioes.edit', $item->id)}}"><i class="far fa-edit"></i></a>
+                              <a href="{{route('avioes.show', $item->id)}}"><i class="far fa-trash-alt"></i></a></i>
                             </td>
                         </tr>
                     @empty
@@ -60,7 +62,5 @@
               </div>
         </div>
           </div>
-
-    
-
-@endsection()
+        
+@endsection

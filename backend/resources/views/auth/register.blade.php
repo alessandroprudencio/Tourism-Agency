@@ -9,7 +9,7 @@
                     <h1 class="title">Registrar</h1>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('register') }}">
                             @csrf
 
                             <div class="form-group ">
@@ -51,7 +51,7 @@
                                     <label for="confirmPassword">{{ __('Confirma Senha') }}</label>
     
                                     <div class="col-md-9">
-                                        <input id="confirmPassword" type="confirmPassword" class="form-control{{ $errors->has('confirmPassword') ? ' is-invalid' : '' }}" name="confirmPassword" required>
+                                        <input id="confirmPassword" type="password" class="form-control{{ $errors->has('confirmPassword') ? ' is-invalid' : '' }}" name="confirmPassword" required>
                                         @if ($errors->has('confirmPassword'))
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('confirmPassword') }}</strong>

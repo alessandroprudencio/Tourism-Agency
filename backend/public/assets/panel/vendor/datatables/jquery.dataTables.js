@@ -11466,7 +11466,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Mostrando _START_ a _END_ de _TOTAL_ Linhas Aéreas",
+			"sInfo": "Mostrando _START_ a _END_ de _TOTAL_",
 	
 			/**
 			 * Display information string for when the table is empty. Typically the
@@ -11707,7 +11707,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Procurar:",
+			"sSearch": "<html><i class='fas fa-search'></i></i></html>",
 	
 	
 			/**

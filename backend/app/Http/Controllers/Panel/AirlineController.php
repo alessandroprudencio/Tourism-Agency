@@ -83,7 +83,6 @@ class AirlineController extends Controller
          }
  
     }
-
     public function destroy($id)
     {
         $airline = $this->airline->find($id);
@@ -96,6 +95,21 @@ class AirlineController extends Controller
             return redirect()->route('linhas_aereas.index')->with('success','Excluido com  sucesso!');;
        }else{
         return redirect()->back()->with('error','Erro ao atualizar linha aérea!');
+        }
     }
+
+    function planes($id){
+        echo'ola';
+        
+        $airline = $this->airline->find($id);
+
+        if(!$airline){
+            return redirect()->back();
+        }
+        
+        $planes = $airline->planes()->get();
+        return view('panel.airlines.planes', compact('planes','airline'));
+
     }
+
 }

@@ -73,11 +73,20 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link" href="{{route('avioes.index')}}">
+                <i class="fas fa-fw fa-plane"></i>
+                <span>Aviões</span>
+              </a>
+            </li>
+
+        <li class="nav-item">
           <a class="nav-link" href="charts.html">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span></a>
         </li>
       </ul>
+
+      
 
       <div id="content-wrapper">
 
